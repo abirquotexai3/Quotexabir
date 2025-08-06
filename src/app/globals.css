@@ -1,0 +1,114 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: var(--font-inter), sans-serif; /* Ensure Inter font is used */
+}
+
+@layer base {
+  :root {
+    /* Light Theme - Cleaner, slightly warmer */
+    --background: 220 20% 98%; /* Lighter, cooler gray */
+    --foreground: 225 25% 15%; /* Slightly softer dark blue/black */
+    --card: 0 0% 100%; /* Pure White for cards */
+    --card-foreground: 225 25% 15%; /* Match foreground */
+    --popover: 0 0% 100%; /* Pure White */
+    --popover-foreground: 225 25% 15%; /* Match foreground */
+    --primary: 225 50% 45%; /* Stronger Blue */
+    --primary-foreground: 0 0% 100%; /* White */
+    --secondary: 210 30% 96%; /* Lighter Gray */
+    --secondary-foreground: 225 25% 25%; /* Darker secondary text */
+    --muted: 210 30% 92%; /* Slightly darker muted */
+    --muted-foreground: 225 20% 45%; /* Lighter Dark Blue */
+    --accent: 170 45% 45%; /* Teal/Cyan */
+    --accent-foreground: 0 0% 100%; /* White */
+    --destructive: 0 75% 55%; /* Slightly softer red */
+    --destructive-foreground: 0 0% 100%; /* White */
+    --border: 210 20% 90%; /* Softer border */
+    --input: 210 20% 90%; /* Softer input border */
+    --ring: 170 45% 50%; /* Teal/Cyan for focus rings */
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    --radius: 0.75rem; /* Slightly increased radius for a rounder feel */
+
+    /* Sidebar variables remain unchanged unless requested */
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+  .dark {
+    /* Dark Theme - Deeper blues, better contrast */
+    --background: 225 30% 9%; /* Very Dark Blue */
+    --foreground: 210 40% 95%; /* Light Gray/Off-white */
+    --card: 225 30% 13%; /* Slightly Lighter Dark Card */
+    --card-foreground: 210 40% 95%; /* Match foreground */
+    --popover: 225 30% 11%; /* Darker Popover */
+    --popover-foreground: 210 40% 95%; /* Match foreground */
+    --primary: 210 80% 65%; /* Brighter Blue for primary */
+    --primary-foreground: 225 30% 10%; /* Dark text on bright primary */
+    --secondary: 225 25% 20%; /* Dark Gray */
+    --secondary-foreground: 210 40% 80%; /* Lighter secondary text */
+    --muted: 225 25% 18%; /* Darker Muted */
+    --muted-foreground: 210 30% 65%; /* Softer muted text */
+    --accent: 170 50% 55%; /* Vibrant Teal/Cyan */
+    --accent-foreground: 225 30% 8%; /* Dark text on accent */
+    --destructive: 0 65% 50%; /* Vibrant red */
+    --destructive-foreground: 0 0% 100%; /* White */
+    --border: 225 20% 25%; /* Darker border */
+    --input: 225 20% 25%; /* Darker input border */
+    --ring: 170 50% 60%; /* Teal/Cyan */
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+    --radius: 0.75rem; /* Slightly increased radius for a rounder feel */
+
+     /* Sidebar variables remain unchanged unless requested */
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+/* Add subtle transition for color mode changes */
+body, .dark body {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Apply subtle shadows and rounded corners to more elements for a cohesive look */
+@layer components {
+  .card, .alert, .button, input, textarea, select, .popover, .dialog-content, .sheet-content {
+    @apply shadow-md rounded-lg; /* Apply consistent shadow and rounding */
+  }
+  .button {
+     @apply transition-transform duration-150 ease-in-out hover:scale-[1.03] active:scale-[0.97]; /* Refined button animation */
+  }
+  h1, h2, h3, h4, h5, h6 {
+     @apply tracking-tight; /* Tighter tracking for headings */
+  }
+}
